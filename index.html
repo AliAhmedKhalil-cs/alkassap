@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al Kassap | Executive Corporate Profile</title>
+  <meta name="description" content="Al Kassap General Contracting, Software Development & Digital Transformation.">
+  
+  <!-- Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ============ EXECUTIVE TOKENS ============ */
+    :root {
+      --navy: #0F172A;
+      --navy-light: #1E293B;
+      --gold: #C8A34D;
+      --gold-dim: rgba(200, 163, 77, 0.15);
+      --white: #FFFFFF;
+      --gray-light: #F8FAFC;
+      --gray-muted: #94A3B8;
+      --line: #E2E8F0;
+      
+      --font-en: 'Inter', sans-serif;
+      --font-ar: 'IBM Plex Sans Arabic', sans-serif;
+      
+      --transition-slow: 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      --transition-fast: 0.3s ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      background-color: var(--gray-light);
+      color: var(--navy);
+      font-family: var(--font-en);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    section {
+      padding: 120px 0;
+    }
+
+    .bg-navy { background-color: var(--navy); color: var(--white); }
+    .bg-navy h1, .bg-navy h2, .bg-navy h3 { color: var(--white); }
+    .bg-navy p { color: var(--gray-muted); }
+
+    /* ============ BUTTONS ============ */
+    .btn-group { display: flex; gap: 1rem; margin-top: 2.5rem; }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .btn-gold {
+      background-color: var(--gold);
+      color: var(--navy);
+      border: 1px solid var(--gold);
+    }
+    .btn-gold:hover {
+      background-color: transparent;
+      color: var(--gold);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    
+    .link-gold {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-top: 1.5rem;
+      display: inline-block;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: var(--transition-fast);
+    }
+    .link-gold:hover { color: var(--navy); }
+
+    /* ============ HERO SECTION ============ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    
+    .hero p.tagline {
+      font-size: 1.1rem;
+      color: var(--gray-muted);
+      max-width: 500px;
+      border-left: 2px solid var(--gold);
+      padding-left: 1.5rem;
+      line-height: 1.8;
+    }
+
+    /* --- صورة الواجهة الدائرية العائمة --- */
+    @keyframes floating {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+    
+    @keyframes pulseGlow {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(1.08); opacity: 1; border-color: rgba(200, 163, 77, 0.4); }
+    }
+
+    .hero-portrait {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1; 
+      max-width: 420px;
+      margin-left: auto;
+      border-radius: 50%;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6); 
+      animation: floating 5s ease-in-out infinite; 
+    }
+    
+    .hero-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center; 
+      border-radius: 50%; 
+      filter: grayscale(15%) contrast(1.05);
+      position: relative;
+      z-index: 2;
+      border: 2px solid rgba(255,255,255,0.1);
+    }
+    
+    .hero-portrait::after {
+      content: "";
+      position: absolute;
+      inset: -15px;
+      border: 2px solid var(--gold-dim);
+      border-radius: 50%;
+      z-index: 1;
+      animation: pulseGlow 3s ease-in-out infinite alternate; 
+    }
+
+    /* ============ ABOUT SECTION ============ */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+    @media(min-width: 768px) { .two-col { grid-template-columns: 1fr 1fr; } }
+    
+    .section-title { font-size: 2.5rem; margin-bottom: 3rem; font-weight: 300; }
+    .text-large { font-size: 1.25rem; color: var(--navy-light); }
+
+    /* ============ SERVICES SECTION ============ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-top: 3rem;
+    }
+    
+    .service-card {
+      background: var(--white);
+      padding: 3rem;
+      transition: var(--transition-fast);
+      position: relative;
+    }
+    
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition-fast);
+    }
+    
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05); z-index: 10; }
+    .service-card:hover::before { transform: scaleX(1); }
+    
+    .service-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+    .service-card p { color: #64748B; font-size: 0.95rem; line-height: 1.6; }
+
+    /* ============ LEADERSHIP SECTION ============ */
+    .leader-main {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      background: var(--white);
+      padding: 3rem;
+      border: 1px solid var(--line);
+      margin-bottom: 2rem;
+      align-items: center;
+      border-radius: 8px;
+    }
+    @media(min-width: 768px) { .leader-main { grid-template-columns: 300px 1fr; } }
+    
+    .leader-main img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      object-position: top; 
+      filter: grayscale(100%);
+      transition: var(--transition-fast);
+      border-radius: 6px;
+    }
+    .leader-main:hover img { filter: grayscale(0%); }
+    
+    .leader-main h3 { font-size: 2rem; margin: 0.5rem 0; }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .team-card { 
+      background: var(--white); 
+      padding: 2.5rem; 
+      border: 1px solid var(--line); 
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+    }
+    .team-card img { 
+      width: 90px; 
+      height: 90px; 
+      border-radius: 50%; 
+      object-fit: cover; 
+      object-position: top;
+      margin-bottom: 1.5rem; 
+      filter: grayscale(100%); 
+      transition: var(--transition-fast);
+    }
+    .team-card:hover img { filter: grayscale(0%); }
+    .team-card h4 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+    .team-card span { font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; }
+    .team-card p { color: #64748B; font-size: 0.95rem; margin-top: 1rem; flex-grow: 1; }
+
+    /* ============ EXECUTIVE DOSSIER ============ */
+    .tabs-container { margin-top: 3rem; }
+    
+    .tabs-header { 
+      display: flex; 
+      gap: 1rem; 
+      margin-bottom: 2.5rem; 
+      border-bottom: 2px solid var(--line); 
+      overflow-x: auto; 
+    }
+    
+    .tab-btn { 
+      background: none; 
+      border: none; 
+      padding: 1rem 1.5rem; 
+      cursor: pointer; 
+      color: var(--gray-muted); 
+      font-weight: 600; 
+      font-family: var(--font-en); 
+      font-size: 1rem; 
+      border-bottom: 3px solid transparent; 
+      transition: var(--transition-fast); 
+      margin-bottom: -2px; 
+      white-space: nowrap;
+    }
+    
+    .tab-btn.active { color: var(--navy); border-bottom-color: var(--gold); }
+    .tab-btn:hover:not(.active) { color: var(--navy-light); }
+    
+    .tab-content { display: none; animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+    .tab-content.active { display: block; }
+    
+    @keyframes fadeIn { 
+      from { opacity: 0; transform: translateY(15px); } 
+      to { opacity: 1; transform: translateY(0); } 
+    }
+
+    .dossier-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+      gap: 2rem; 
+    }
+    
+    .dossier-card { 
+      background: var(--white); 
+      border: 1px solid var(--line); 
+      border-radius: 8px; 
+      overflow: hidden; 
+      transition: var(--transition-fast); 
+    }
+    
+    .dossier-card:hover { 
+      transform: translateY(-5px); 
+      box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08); 
+      border-color: var(--gold); 
+    }
+    
+    .dossier-img.cover img { 
+      object-fit: cover; 
+      object-position: top; 
+      filter: grayscale(30%) contrast(1.1); 
+    }
+    
+    .dossier-img.contain img { object-fit: contain; padding: 1rem; background: #F8FAFC; }
+    
+    .dossier-img { aspect-ratio: 4/3; overflow: hidden; border-bottom: 1px solid var(--line); }
+    .dossier-img img { width: 100%; height: 100%; transition: var(--transition-fast); }
+    .dossier-card:hover .dossier-img img { filter: grayscale(0%) contrast(1); transform: scale(1.03); }
+    
+    .dossier-info { padding: 1.5rem; }
+    .dossier-year { color: var(--gold); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+    .dossier-info h4 { font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--navy); font-weight: 600; }
+    .dossier-info p { font-size: 0.9rem; color: #64748B; margin: 0; line-height: 1.6; }
+
+    /* ============ FOOTER (PRINT READY & PROFESSIONAL) ============ */
+    footer { padding: 4rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    @media(min-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-contact { text-align: right; }
+    }
+
+    .footer-brand h4 { color: var(--white); margin-bottom: 0.5rem; font-size: 1.5rem; }
+    .footer-brand p { color: var(--gray-muted); max-width: 400px; line-height: 1.6; }
+    
+    .footer-contact h5 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .footer-contact p { color: var(--white); margin-bottom: 0.4rem; }
+    .footer-contact span { color: var(--gray-muted); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 2rem;
+      color: var(--gray-muted);
+      font-size: 0.8rem;
+    }
+
+    /* ============ STICKY WHATSAPP ============ */
+    .sticky-whatsapp {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+      z-index: 100;
+      transition: var(--transition-fast);
+      text-decoration: none;
+    }
+    .sticky-whatsapp:hover { transform: scale(1.1); }
+    .sticky-whatsapp svg { width: 30px; height: 30px; fill: currentColor; }
+
+    /* ============ ANIMATIONS ============ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity var(--transition-slow), transform var(--transition-slow);
+      will-change: opacity, transform;
+    }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero p.tagline { margin: 1rem auto; border-left: none; border-top: 2px solid var(--gold); padding-left: 0; padding-top: 1.5rem; }
+      .hero-portrait { margin: 0 auto; }
+      .btn-group { justify-content: center; }
+    }
+    
+    /* إخفاء الزر العائم عند الطباعة ليكون الشكل رسمياً */
+    @media print {
+      .sticky-whatsapp { display: none !important; }
+      body { background-color: white !important; color: black !important; }
+      .bg-navy { background-color: white !important; color: black !important; }
+      .bg-navy h1, .bg-navy h2, .bg-navy h3, .footer-brand h4, .footer-contact p { color: black !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero bg-navy">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="eyebrow reveal">Founder & Chairman</span>
+        <h1 class="reveal delay-1">Ahmed Khalil Gamil Kassap</h1>
+        <p class="tagline reveal delay-2">Over 34 years of operational excellence in General Contracting, General Supplies, Logistics, and Digital Transformation.</p>
+        <div class="btn-group reveal delay-3">
+          <a href="https://wa.me/201201218666" class="btn btn-gold" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a href="mailto:info@alkassap.com" class="btn btn-outline">Email Office</a>
+        </div>
+      </div>
+      <div class="hero-portrait reveal delay-2">
+        <img src="founder.webp" alt="Ahmed Khalil Gamil Kassap - Founder & Chairman">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="bg-white">
+    <div class="container">
+      <span class="eyebrow reveal">Corporate Profile</span>
+      <h2 class="section-title reveal">Executive Overview</h2>
+      
+      <div class="two-col mt-4">
+        <div class="reveal delay-1">
+          <h3 class="mb-2">A 34-Year Legacy of Excellence</h3>
+          <p class="text-large" style="margin-bottom: 2rem;">Established formally in 2015, Al Kassap operates at the critical intersection of physical infrastructure, logistics, and digital advancement.</p>
+          <p style="color: #64748B;">Under the leadership of Ahmed Khalil Gamil Kassap, the firm is built upon more than three decades of rigorous operational management. Beginning his career in elite hospitality, large-scale catering operations, and facility management across the UAE and Egypt, Mr. Kassap developed profound expertise in complex logistics, team leadership, and quality control. Today, this foundational discipline drives Al Kassap’s General Contracting, Life Support Services (الإعاشة), and Enterprise Digital Transformation divisions.</p>
+        </div>
+        <div class="reveal delay-2">
+          <h3 class="mb-2">Mission & Vision</h3>
+          <p style="color: #64748B; margin-bottom: 1.5rem;"><strong>Mission:</strong> To execute physical infrastructure, general supplies, and technological architecture with uncompromising discipline, ensuring stability, scalability, and exact specification adherence for government and enterprise clients.</p>
+          <p style="color: #64748B;"><strong>Vision:</strong> To serve as the definitive single-source executive partner in Egypt for institutions requiring structural development, operational catering/supplies, and enterprise-grade digital systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services" class="bg-gray-light">
+    <div class="container">
+      <span class="eyebrow reveal">Core Competencies</span>
+      <h2 class="section-title reveal">Divisional Capabilities</h2>
+      
+      <div class="services-grid reveal delay-1">
+        <!-- Division 1: Contracting & Supplies -->
+        <div class="service-card">
+          <span class="eyebrow" style="color: #94A3B8;">01. Construction</span>
+          <h3>General Contracting</h3>
+          <p>Execution of comprehensive civil works, bridges, and commercial building construction managed with stringent adherence to national codes and structural integrity standards.</p>
+        </div>
+        <div class="service-card">
+          <span class="eyebrow" style="color: #94A3B8;">02. Infrastructure</span>
+          <h3>Infrastructure Development</h3>
+          <p>Planning and implementation of foundational physical systems required to support large-scale industrial zones and governmental facilities.</p>
+        </div>
+        <div class="service-card">
+          <span class="eyebrow" style="color: #94A3B8;">03. Logistics</span>
+          <h3>General Supplies & Catering</h3>
+          <p>Leveraging 34 years of hospitality management to provide elite life-support services (الإعاشة), massive-scale catering, and reliable materials procurement for continuous project lifecycles.</p>
+        </div>
+        
+        <!-- Division 2: Technology -->
+        <div class="service-card">
+          <span class="eyebrow" style="color: #94A3B8;">04. Technology</span>
+          <h3>Software Development</h3>
+          <p>Engineering bespoke, scalable enterprise software applications utilizing modern frameworks, rigid object-oriented architectures, and high-performance databases.</p>
+        </div>
+        <div class="service-card">
+          <span class="eyebrow" style="color: #94A3B8;">05. Technology</span>
+          <h3>Digital Transformation</h3>
+          <p>Strategic modernization of legacy systems, integrating advanced automation and data pipelines to optimize institutional efficiency.</p>
+        </div>
+        <div class="service-card">
+          <span class="eyebrow" style="color: #94A3B8;">06. Technology</span>
+          <h3>IT Solutions & Cybersecurity</h3>
+          <p>Deployment and management of secure server environments, cloud computing architectures, and robust backend network infrastructure with continuous technical support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEADERSHIP ============ -->
+  <section id="leadership" class="bg-white">
+    <div class="container">
+      <span class="eyebrow reveal">Governance</span>
+      <h2 class="section-title reveal">Executive Leadership</h2>
+      
+      <div class="leader-main reveal delay-1">
+        <img src="founder.jpg" alt="Ahmed Khalil Gamil Kassap">
+        <div>
+          <span class="eyebrow">Office of the Chairman</span>
+          <h3>Ahmed Khalil Gamil Kassap</h3>
+          <p style="color: #64748B; margin-top: 1rem; line-height: 1.8;">
+            As Founder and Chairman, Mr. Kassap brings over 34 years of diversified executive experience. His career began in elite hospitality management and large-scale culinary operations across prominent institutions in the United Arab Emirates and Egypt. This intensive background in precision logistics, facility security, and team management formed the bedrock of his entrepreneurial success in General Contracting and Corporate Supplies. Today, he directs the strategic vision of Al Kassap, ensuring absolute financial discipline and client trust across all physical and technological divisions.
+          </p>
+        </div>
+      </div>
+      
+      <div class="team-grid reveal delay-2">
+        <div class="team-card">
+          <img src="ali.jpg" alt="Ali Kassap">
+          <h4>Ali Kassap</h4>
+          <span>Lead Software Engineer</span>
+          <p>Directs backend architecture, system deployments, and enterprise software development, ensuring optimal performance and security for digital transformation initiatives.</p>
+          <a href="https://alikassap.website/" target="_blank" class="link-gold">Executive Portfolio &rarr;</a>
+        </div>
+        
+        <div class="team-card">
+          <img src="ibrahim.jpg" alt="Ibrahim Kassap">
+          <h4>Ibrahim Kassap</h4>
+          <span>Software Engineer</span>
+          <p>Specializes in sophisticated frontend architectures, user experience design, and the implementation of scalable, enterprise-grade digital interfaces.</p>
+          <a href="https://ibrahemkassap.tech/" target="_blank" class="link-gold">Executive Portfolio &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CREDENTIALS & LEGACY (THE EXECUTIVE DOSSIER) ============ -->
+  <section id="legacy" class="bg-gray-light">
+    <div class="container">
+      <span class="eyebrow reveal">Executive Dossier</span>
+      <h2 class="section-title reveal">Verified Operational Track Record</h2>
+      
+      <p class="reveal delay-1" style="max-width: 850px; color: var(--navy-light); font-size: 1.1rem; line-height: 1.8;">
+        The foundation of Al Kassap's robust capabilities in contracting and logistics is directly derived from Mr. Kassap's 34-year career. By directing high-stress logistics, massive workforce operations, and stringent security protocols across elite Middle Eastern institutions, he developed the exact executive discipline that now ensures the flawless execution of our current mega-projects.
+      </p>
+      
+      <div class="tabs-container reveal delay-2">
+        <div class="tabs-header">
+          <button class="tab-btn active" onclick="openTab(event, 'tab-operations')">Operational Leadership</button>
+          <button class="tab-btn" onclick="openTab(event, 'tab-accreditations')">Corporate Accreditations</button>
+          <button class="tab-btn" onclick="openTab(event, 'tab-clearances')">Official Clearances & IDs</button>
+        </div>
+
+        <div id="tab-operations" class="tab-content active">
+          <div class="dossier-grid">
+            <div class="dossier-card">
+              <div class="dossier-img cover"><img src="71896_403062.webp" alt="Operations Management"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">Field Operations</span>
+                <h4>Large-Scale Catering Logistics</h4>
+                <p>Directing high-volume catering and life-support (الإعاشة) operations with precision workforce management.</p>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-img cover"><img src="171900_145823.webp" alt="Elite Hospitality"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">Executive Leadership</span>
+                <h4>Elite Hospitality Standards</h4>
+                <p>Foundational leadership in premium culinary logistics, demanding absolute quality control.</p>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-img cover"><img src="200624_727102.webp" alt="Facility Operations"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">Supply Chain</span>
+                <h4>Facility Supply Operations</h4>
+                <p>Managing extensive corporate and hospitality supply chains to ensure zero operational downtime.</p>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-img cover"><img src="614286_73358.webp" alt="Banquet Management"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">Event Logistics</span>
+                <h4>Banquet & Mega-Event Management</h4>
+                <p>Supervising logistical execution and staffing for massive institutional events.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-accreditations" class="tab-content">
+          <div class="dossier-grid">
+            <div class="dossier-card">
+              <div class="dossier-img contain"><img src="‏صورة من Eng.Ali Ahmed(12).jpg" alt="ADMAK"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">1998 - 1999</span>
+                <h4>ADMAK General Contracting</h4>
+                <p>Official Service Certification confirming employment within the contracting sector.</p>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-img contain"><img src="‏صورة من Eng.Ali Ahmed(9).jpg" alt="ADNH"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">1999 - 2000</span>
+                <h4>Abu Dhabi National Hotels (ADNH)</h4>
+                <p>Service Certification within the Catering & Logistics Division of ADNH.</p>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-img contain"><img src="‏صورة من Eng.Ali Ahmed(6).jpg" alt="Moraik"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">2000 - 2001</span>
+                <h4>Moraik Oilfield Services</h4>
+                <p>Executive Certification in life-support operations for oilfield environments.</p>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-img contain"><img src="‏صورة من Eng.Ali Ahmed(10).jpg" alt="Atlas Hotel"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">1992 - 1996</span>
+                <h4>Atlas Hotel Management</h4>
+                <p>Extended Service Certificate highlighting career progression and operational loyalty.</p>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-img contain"><img src="‏صورة من Eng.Ali Ahmed(8).jpg" alt="Z&Z"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">2002</span>
+                <h4>Z&Z Operations</h4>
+                <p>Professional Service Certificate reflecting behavioral excellence and efficiency.</p>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-img contain"><img src="‏صورة من Eng.Ali Ahmed(2).jpg" alt="Gulf Hotel"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">1997</span>
+                <h4>Abu Dhabi Gulf Hotel</h4>
+                <p>Official Training and Professional Development Certification.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-clearances" class="tab-content">
+          <div class="dossier-grid">
+            <div class="dossier-card">
+              <div class="dossier-img contain"><img src="‏صورة من Eng.Ali Ahmed(1).jpg" alt="Military"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">2001</span>
+                <h4>Egyptian Armed Forces</h4>
+                <p>Official Military Certificate, demonstrating national compliance and discipline.</p>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-img contain"><img src="‏صورة من Eng.Ali Ahmed(4).jpg" alt="Civil Defense"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">1997</span>
+                <h4>UAE Ministry of Interior</h4>
+                <p>Civil Defense Training Certificate, ensuring strict adherence to safety protocols.</p>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-img contain"><img src="‏صورة من Eng.Ali Ahmed(3).jpg" alt="Security Officer"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">1996 - 1998</span>
+                <h4>Security & Operations</h4>
+                <p>Service Certificate explicitly as a Security Officer, highlighting facility safety management.</p>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-img contain"><img src="‏صورة من Eng.Ali Ahmed(5).jpg" alt="GM ID"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">Executive ID</span>
+                <h4>General Manager Clearance</h4>
+                <p>Official identification verifying executive status and operational access.</p>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-img contain"><img src="‏صورة من Eng.Ali Ahmed(7).jpg" alt="ADNH ID"></div>
+              <div class="dossier-info">
+                <span class="dossier-year">Corporate ID</span>
+                <h4>ADNH Identity Card</h4>
+                <p>Official Corporate Identity Card for the Abu Dhabi National Hotels Catering Division.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER (PRINT READY) ============ -->
+  <footer class="bg-navy">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Al Kassap</h4>
+          <p>General Contracting, Software Development & Digital Transformation. Delivering robust physical infrastructure and enterprise-grade digital systems.</p>
+        </div>
+        <div class="footer-contact">
+          <h5>Executive Contact Information</h5>
+          <p><span>Email:</span> info@alkassap.com</p>
+          <p><span>Phone:</span> +20 120 121 8666</p>
+          <p><span>Headquarters:</span> Al Khusus, Qalyubia, Arab Republic of Egypt</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Est. 2015 | Registered in the Arab Republic of Egypt</p>
+        <p>&copy; 2026 Al Kassap. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ STICKY WHATSAPP ============ -->
+  <a href="https://wa.me/201201218666" class="sticky-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script>
+    // 1. Scroll Animation
+    document.addEventListener("DOMContentLoaded", () => {
+      const reveals = document.querySelectorAll(".reveal");
+      
+      const revealOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+      };
+
+      const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target); 
+        });
+      }, revealOptions);
+
+      reveals.forEach(reveal => {
+        revealOnScroll.observe(reveal);
+      });
+    });
+
+    // 2. Tabs Functionality for Executive Dossier
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      
+      // إخفاء جميع محتويات التبويبات
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+      }
+      
+      // إزالة فئة 'active' من جميع الأزرار
+      tablinks = document.getElementsByClassName("tab-btn");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      
+      // إظهار التبويب المطلوب وتفعيل الزر المضغوط
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+</body>
+</html>
